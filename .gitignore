@@ -51,3 +51,5 @@ local.properties
 # IDEA specific
 .idea
 *.iml
+
+build/
