@@ -34,7 +34,7 @@ import com.ikovac.timepickerwithseconds.view.TimePicker.OnTimeChangedListener;
 /**
  * A dialog that prompts the user for the time of day using a {@link TimePicker}.
  */
-public class MyTimePickerDialog extends AlertDialog implements OnClickListener, 
+public class MyTimePickerDialog extends AlertDialog implements OnClickListener,
         OnTimeChangedListener {
 
     /**
