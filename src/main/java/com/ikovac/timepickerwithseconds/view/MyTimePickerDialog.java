@@ -77,7 +77,7 @@ public class MyTimePickerDialog extends AlertDialog implements OnClickListener,
             OnTimeSetListener callBack,
             int hourOfDay, int minute, int seconds, boolean is24HourView) {
     	
-        this(context, R.style.Theme_Dialog_Alert,
+        this(context, 0,
                 callBack, hourOfDay, minute, seconds, is24HourView);
     }
 
@@ -103,7 +103,7 @@ public class MyTimePickerDialog extends AlertDialog implements OnClickListener,
 
         mDateFormat = DateFormat.getTimeFormat(context);
         mCalendar = Calendar.getInstance();
-        updateTitle(mInitialHourOfDay, mInitialMinute, mInitialSeconds);
+        //updateTitle(mInitialHourOfDay, mInitialMinute, mInitialSeconds);
         
         setButton(context.getText(R.string.time_set), this);
         setButton2(context.getText(R.string.cancel), (OnClickListener) null);
@@ -132,7 +132,7 @@ public class MyTimePickerDialog extends AlertDialog implements OnClickListener,
     }
 
     public void onTimeChanged(TimePicker view, int hourOfDay, int minute, int seconds) {
-        updateTitle(hourOfDay, minute, seconds);
+        //updateTitle(hourOfDay, minute, seconds);
     }
     
     public void updateTime(int hourOfDay, int minutOfHour, int seconds) {
