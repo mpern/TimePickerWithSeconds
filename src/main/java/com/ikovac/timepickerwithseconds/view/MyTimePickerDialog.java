@@ -16,14 +16,11 @@
 
 package com.ikovac.timepickerwithseconds.view;
 
-import java.util.Calendar;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -58,8 +55,6 @@ public class MyTimePickerDialog extends AlertDialog implements OnClickListener,
     
     private final TimePicker mTimePicker;
     private final OnTimeSetListener mCallback;
-    private final Calendar mCalendar;
-    private final java.text.DateFormat mDateFormat;
         
     int mInitialHourOfDay;
     int mInitialMinute;
@@ -101,13 +96,8 @@ public class MyTimePickerDialog extends AlertDialog implements OnClickListener,
         mInitialSeconds = seconds;
         mIs24HourView = is24HourView;
 
-        mDateFormat = DateFormat.getTimeFormat(context);
-        mCalendar = Calendar.getInstance();
-        //updateTitle(mInitialHourOfDay, mInitialMinute, mInitialSeconds);
-        
-        setButton(context.getText(R.string.time_set), this);
-        setButton2(context.getText(R.string.cancel), (OnClickListener) null);
-        //setIcon(android.R.drawable.ic_dialog_time);
+        setButton(AlertDialog.BUTTON_POSITIVE, context.getText(R.string.time_set), this);
+        setButton(AlertDialog.BUTTON_NEGATIVE, context.getText(R.string.cancel), (OnClickListener) null);
         
         LayoutInflater inflater = 
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -141,13 +131,6 @@ public class MyTimePickerDialog extends AlertDialog implements OnClickListener,
         mTimePicker.setCurrentSecond(seconds);
     }
     
-    private void updateTitle(int hour, int minute, int seconds) {
-        mCalendar.set(Calendar.HOUR_OF_DAY, hour);
-        mCalendar.set(Calendar.MINUTE, minute);
-        mCalendar.set(Calendar.SECOND, seconds);
-        setTitle(mDateFormat.format(mCalendar.getTime()) + ":" + String.format("%02d" , seconds));
-    }
-    
     @Override
     public Bundle onSaveInstanceState() {
         Bundle state = super.onSaveInstanceState();
@@ -169,7 +152,6 @@ public class MyTimePickerDialog extends AlertDialog implements OnClickListener,
         mTimePicker.setCurrentSecond(seconds);
         mTimePicker.setIs24HourView(savedInstanceState.getBoolean(IS_24_HOUR));
         mTimePicker.setOnTimeChangedListener(this);
-        updateTitle(hour, minute, seconds);
     }
     
    
