@@ -16,7 +16,6 @@ android {
 
     defaultConfig {
         minSdkVersion 11
-        targetSdkVersion 18
     }
 
     buildTypes{
@@ -27,5 +26,5 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:+'
+    compile 'com.android.support:support-v4:21.0.2'
 }
