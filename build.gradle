@@ -4,14 +4,14 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.11.+'
+        classpath 'com.android.tools.build:gradle:1.0.0-rc1'
     }
 }
 
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 18
+    compileSdkVersion 21
     buildToolsVersion "19.1.0"
 
     defaultConfig {
@@ -21,8 +21,7 @@ android {
 
     buildTypes{
         release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            minifyEnabled false
         }
     }
 }
